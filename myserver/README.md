@@ -1,16 +1,10 @@
-# Medical Mission Database
+# Project RPG
 
-- This project is to provide a potential Web App which will organize records of the participants of a local medical mission. This includes database of the participating doctors, organizers, admins, and patients.
+- This project is to provide a potential Web App which will organize records of the public rooms and units from different locations in NCR region. Clients will be able to have a quick search for available room for rent near them. People may also view posts from registered agents of the lists of the available bedspace, rooms, units, or even townhouses for sale.
 
 ## Motivation
 
-- The developer had the motivation to conduct this project to provide an idea of better organizing of public records with the use of modern system using cloud databases.
-
-## Timeline
-
-- A complete and detailed planning which will include the Wireframes, Data Model, Database Design, UI, UX Design would take 7-10 days for basic requirements (MVP). 
-- The completion of the server for the database having the basic CRUD operations, separations of concerns for controllers, routes, models, including the testings and simulation, may take additional 7-14 days for basic requirements (MVP).
-- The creation of the front-end part of the website with basic user interface, functioning forms, user registration with login, and retrieval of user records, may take additional 7-14 days meeting all the basic requirements (MVP).
+- The developer had the motivation to conduct this project to provide an idea of better organizing of agents and local citizens offer rentals for rooms.
 
 ## Tools and Softwares
 
