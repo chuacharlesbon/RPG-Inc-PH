@@ -3,7 +3,9 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const app = express()
 
-/*const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes')
+
+/*
 
 const productRoutes = require('./routes/productRoutes')
 
@@ -31,9 +33,9 @@ app.use(express.json());
 
 app.use(cors());
 
-/*app.use('/messages', messageRoutes);
-
 app.use('/users', userRoutes);
+
+/*app.use('/messages', messageRoutes);
 
 app.use('/products', productRoutes);
 
