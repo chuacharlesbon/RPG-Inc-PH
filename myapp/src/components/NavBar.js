@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Col, FormControl, Form, Navbar, Nav, Container, Button, NavDropdown} from 'react-bootstrap'
+import {FormControl, Form, Navbar, Nav, Container, Button, NavDropdown} from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import rpg from './images/rpg-logo.png'
 
