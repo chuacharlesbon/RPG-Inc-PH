@@ -41,3 +41,107 @@ module.exports.registerUser = (req, res) => {
 	.catch(error => res.send(error))
 
 };
+
+
+module.exports.loginUser = (req, res) => {
+	
+	console.log(req.body);
+	User.findOne({email: req.body.email})
+	.then(foundUser => {
+		if(foundUser === null){
+			return res.send("User does not exist")
+		}else {
+			const isPasswordCorrect = bcrypt.compareSync(req.body.password, foundUser.password)
+
+			if(isPasswordCorrect){
+				return res.send({accessToken: auth.createAccessToken(foundUser)})
+			}else {
+				return res.send("Password is incorrect")
+			}
+		}
+	})
+	.catch(error => res.send(error))
+}
+
+
+module.exports.getProfile = (data) => {
+
+	return User.findById(data.userId).then(result => {
+
+		// Changes the value of the user's password to an empty string when returned to the frontend
+		// Not doing so will expose the user's password which will also not be needed in other parts of our application
+		// Unlike in the "register" method, we do not need to call the mongoose "save" method on the model because we will not be changing the password of the user in the database but only the information that we will be sending back to the frontend application
+		result.password = "";
+
+		// Returns the user information with the password as an empty string
+		return result;
+
+	});
+
+}
+
+module.exports.updateAdmin = (req, res) => {
+
+	console.log(req.params.id);
+	
+	let updates = {
+		isAdmin: true
+	}
+
+	User.findByIdAndUpdate(req.params.id, updates, {new:true})
+	.then(updatedUser => res.send(updatedUser))
+	.catch(error => res.send(error))
+
+
+}
+
+//ADMIN delete single user by ID
+module.exports.deleteSingleUser = (req, res) => {
+	console.log(req.params.id)
+	User.deleteOne({_id: req.params.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
+
+
+//User to update his/her details
+module.exports.updateUserDetails = (req, res) => {
+	console.log(req.body);
+	//check the user id
+	console.log(req.user.id);
+
+	let updates = {
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
+		mobileNo: req.body.mobileNo,
+		residence: req.body.residence
+	}
+
+	User.findByIdAndUpdate(req.user.id, updates, {new:true})
+	.then(updatedUser => res.send(updatedUser))
+	.catch(error => res.send(error))
+
+}
+
+//System Delete all users
+module.exports.deleteAllUsers = (req, res) => {
+	User.deleteMany({})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
+
+module.exports.getDetails = (req, res) => {
+	console.log(req.user.id)
+	User.find({ _id: req.user.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+}
+
+module.exports.findUser = (req, res) => {
+	console.log(req.params.id)
+	User.findOne({ _id: req.params.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+}

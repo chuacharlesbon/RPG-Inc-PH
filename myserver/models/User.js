@@ -24,6 +24,7 @@ let userSchema = new mongoose.Schema({
 	residence: {
 		type: String,
 		required: [true, "Residential Address is required"]
+		/*Location, City, Region*/
 	},
 	userType: {
 		type: String,
