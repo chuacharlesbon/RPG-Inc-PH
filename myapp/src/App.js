@@ -8,6 +8,8 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Error from './pages/ErrorPage'
 import Register from './pages/Register'
+import Login from './pages/Login'
+import Bedspace from './pages/RentBedspace'
 
 function App() {
 
@@ -57,6 +59,8 @@ const [user, setUser] = useState({id: null, isAdmin: null, email: null, userName
     <Routes>
       <Route exact path="/" element={<Home/>}/>
       <Route exact path="/register" element={<Register/>}/>
+      <Route exact path="/login" element={<Login/>}/>
+      <Route exact path="/bedspace_type" element={<Bedspace/>}/>
       <Route exact path="*" element={<Error/>}/>
     </Routes>
     </Container>

@@ -24,7 +24,7 @@ export default function NavBar() {
 	        <Nav.Link as={Link} to="/"  className="text-white text-mulish m-1 nav-btn">Home</Nav.Link>
 	        <Nav.Link as={Link} to="/" className="text-white  text-mulish m-1 nav-btn">Locations</Nav.Link>
 	        <NavDropdown title="Rentals" id="navbarScrollingDropdown"  className="text-white m-1 nav-btn">
-	          <NavDropdown.Item href="#action3" className="text-mulish">Bedspace Type</NavDropdown.Item>
+	          <NavDropdown.Item  as={Link} to="/bedspace_type" className="text-mulish">Bedspace Type</NavDropdown.Item>
 	          <NavDropdown.Item href="#action3" className="text-mulish">Single-Room Type</NavDropdown.Item>
 	          <NavDropdown.Item href="#action4" className="text-mulish">Multi-Unit Rent Type</NavDropdown.Item>
 	          <NavDropdown.Divider />
@@ -40,7 +40,7 @@ export default function NavBar() {
 	          <NavDropdown.Item href="#action3">Be A Mall Tenant</NavDropdown.Item>
 	        </NavDropdown>
 	        <Nav.Link as={Link} to="/register"  className="text-white text-mulish m-1 nav-btn">Register</Nav.Link>
-	        <Nav.Link href="#" className="text-white text-mulish m-1 nav-btn">Login</Nav.Link>
+	        <Nav.Link as={Link} to="/login" className="text-white text-mulish m-1 nav-btn">Login</Nav.Link>
 	      </Nav>
 	      <Form className="d-flex">
 	        <FormControl

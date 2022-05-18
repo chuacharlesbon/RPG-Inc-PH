@@ -31,18 +31,18 @@ export default function Register(){
 	const handleShow = () => setShow(true);
 
 
-	console.log(email)
+	//console.log(email)
 	//console.log(password1)
 	//console.log(password2)
-	console.log(agreed)
-	console.log(isActive)
-	console.log(newEmail)
+	//console.log(agreed)
+	//console.log(isActive)
+	//console.log(newEmail)
 
 
 	function registerUser(e){
 		e.preventDefault()
 
-		fetch('https://immense-lake-17505.herokuapp.com/users/register', {
+		fetch('http://localhost:4000/users/register', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ export default function Register(){
 				email: email,
 				password: password2,
 				mobileNo: mobileNo,
-				deliveryAdd: residence
+				residence: residence
 			})
 		})
 		.then(res => {
@@ -69,7 +69,7 @@ export default function Register(){
 				Swal.fire({
 					title: "Registration Successful",
 					icon: "success",
-					text: `Welcome to ShopNetwork ${firstName}! You will be redirected to the Log In page`,
+					text: `Welcome to RPG Inc Philippines ${firstName}! You will be redirected to the Log In page`,
 					showClass: {
     						popup: 'animate__animated animate__fadeInDown'
  	 				},
@@ -95,7 +95,7 @@ export default function Register(){
 				})
 			}
 		})
-		fetch('https://immense-lake-17505.herokuapp.com/messages', {
+		/*fetch('https://immense-lake-17505.herokuapp.com/messages', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ export default function Register(){
 			})
 		})
 		.then(res => {
-			//console.log(res)
+			
 			return res.json()
 		})
 		.then(data => {
@@ -117,7 +117,7 @@ export default function Register(){
 			}else {
 				console.log("Something went wrong")
 			}
-		})
+		})*/
 
 	}
 
@@ -197,6 +197,13 @@ export default function Register(){
 
 
 	return(
+
+		( registered === true )?
+
+		<Navigate to="/login"/>
+
+		:
+
 		<>
 
 		<Banner/>

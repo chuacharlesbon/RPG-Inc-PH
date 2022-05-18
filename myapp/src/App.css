@@ -28,6 +28,11 @@ body {
   font-family: 'Mulish', sans-serif;
   font-weight: bold;
 }
+#navbarScrollingDropdown2 {
+  color: black;
+  font-family: 'Mulish', sans-serif;
+  font-weight: bold;
+}
 .nav-btn:hover {
   border-bottom: red 0.3rem solid;
   margin-bottom: 0;
@@ -45,7 +50,7 @@ body {
   border-color: tomato !important;
 }
 .bg-clear {
-  background-color: rgba(217, 136, 128, 0.3);
+  background-color: rgba(217, 136, 128, 0.4);
   border-color: ;
 }
 
@@ -64,6 +69,10 @@ body {
 .image-banner {
   width: 40rem;
   height: 27rem;
+}
+.img-bedspace {
+  width: 36rem;
+  height: 20rem;
 }
 
 
