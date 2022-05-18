@@ -5,7 +5,7 @@ import Image from "react-bootstrap/Image";
 import UserContext from '../UserContext'
 
 
-export default function RentRoom(rentProp){
+export default function RentRoom(){
 
 	const [searchItem, setSearchItem] = useState('')
 	const [units, setUnits] = useState([])

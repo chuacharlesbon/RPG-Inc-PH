@@ -26,6 +26,10 @@ body {
   height: 50vh;
   width: 100%;
 }
+.card-details {
+  overflow-y: scroll;
+  height: 15rem;
+}
 
 #navbarScrollingDropdown {
   color: white;

@@ -3,22 +3,36 @@ import {Row, Col, Container, Nav, Navbar, NavDropdown, Form, Button} from 'react
 import {Link, Navigate} from 'react-router-dom'
 import Image from "react-bootstrap/Image";
 import UserContext from '../UserContext'
+import UnitCard from '../components/UnitCard'
 
 
-export default function RentBedspace(rentProp){
+export default function RentBedspace(){
 
 	const [searchItem, setSearchItem] = useState('')
 	const [units, setUnits] = useState([])
 
-	console.log(searchItem)
-
+	useEffect(() => {
+		//fetch('http://localhost:4000/courses')
+		fetch('http://localhost:4000/units/bedspace')
+		.then(res => res.json())
+		.then(data => {
+			console.log(data)
+			setUnits(data.map(unit => {
 	
+	return (
+		//key used to identify each child
+		<UnitCard key={unit._id} unitProp={unit}/>
+
+	)
+	}))
+	})
+	}, [])
 
 	function searchItems(e) {
 		
-		/*e.preventDefault()
+		e.preventDefault()
 
-		fetch(`https://immense-lake-17505.herokuapp.com/products/getSingleProductParams/${searchItem}`)
+		/*fetch(`https://immense-lake-17505.herokuapp.com/products/getSingleProductParams/${searchItem}`)
 		.then(res => {
 			
 			return res.json()
