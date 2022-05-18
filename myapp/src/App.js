@@ -6,6 +6,8 @@ import {UserProvider} from './UserContext'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import Error from './pages/ErrorPage'
+import Register from './pages/Register'
 
 function App() {
 
@@ -54,6 +56,8 @@ const [user, setUser] = useState({id: null, isAdmin: null, email: null, userName
     <Container>
     <Routes>
       <Route exact path="/" element={<Home/>}/>
+      <Route exact path="/register" element={<Register/>}/>
+      <Route exact path="*" element={<Error/>}/>
     </Routes>
     </Container>
     <Footer/>

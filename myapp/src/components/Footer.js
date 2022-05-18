@@ -46,7 +46,7 @@ export default function Footer () {
 
 		:*/
 		<>
-		<Row className="mt-3 bg-tomato pt-1 mx-0 text-center justify-content-center">
+		<Row className="mt-3 bg-tomato pt-1 mx-0 text-center justify-content-center footer">
 
 		<Col xs={12}  md={6} lg={4} className="text-center mx-auto my-2">
 		<p><Button  as={Link} to="/about" className="bg-tomato text-dark">About the Developer</Button></p>

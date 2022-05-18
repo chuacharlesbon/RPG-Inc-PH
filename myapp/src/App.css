@@ -10,6 +10,17 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  
+}
+.footer {
+  bottom: 0;
+}
+.errorpage {
+  height: 60vh;
+}
+.termsmodal {
+  overflow-y: scroll;
+  height: 15rem;
 }
 
 #navbarScrollingDropdown {
