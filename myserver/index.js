@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const app = express()
 
 const userRoutes = require('./routes/userRoutes')
+const unitRoutes = require('./routes/unitRoutes')
 
 /*
 
@@ -35,12 +36,13 @@ app.use(cors());
 
 app.use('/users', userRoutes);
 
+app.use('/units', unitRoutes);
+
 /*app.use('/messages', messageRoutes);
 
 app.use('/products', productRoutes);
 
 app.use('/orders', orderRoutes);
-
-app.use('/chats', chatRoutes);*/
+;*/
 
 app.listen(port, () => console.log (`Server is now running at port ${port}`))
