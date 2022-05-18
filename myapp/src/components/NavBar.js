@@ -22,10 +22,10 @@ export default function NavBar() {
 	        navbarScroll
 	      >
 	        <Nav.Link as={Link} to="/"  className="text-white text-mulish m-1 nav-btn">Home</Nav.Link>
-	        <Nav.Link as={Link} to="/" className="text-white  text-mulish m-1 nav-btn">Locations</Nav.Link>
+	        <Nav.Link as={Link} to="/use_maps" className="text-white  text-mulish m-1 nav-btn">Use Maps</Nav.Link>
 	        <NavDropdown title="Rentals" id="navbarScrollingDropdown"  className="text-white m-1 nav-btn">
 	          <NavDropdown.Item  as={Link} to="/bedspace_type" className="text-mulish">Bedspace Type</NavDropdown.Item>
-	          <NavDropdown.Item href="#action3" className="text-mulish">Single-Room Type</NavDropdown.Item>
+	          <NavDropdown.Item  as={Link} to="/rentroom_type" className="text-mulish">Single-Room Type</NavDropdown.Item>
 	          <NavDropdown.Item href="#action4" className="text-mulish">Multi-Unit Rent Type</NavDropdown.Item>
 	          <NavDropdown.Divider />
 	          <NavDropdown.Item href="#action5" className="text-mulish">Condo For Rent</NavDropdown.Item>

@@ -22,6 +22,10 @@ body {
   overflow-y: scroll;
   height: 15rem;
 }
+#gmap_canvas {
+  height: 50vh;
+  width: 100%;
+}
 
 #navbarScrollingDropdown {
   color: white;

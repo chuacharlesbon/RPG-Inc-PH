@@ -10,6 +10,8 @@ import Error from './pages/ErrorPage'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Bedspace from './pages/RentBedspace'
+import Rooms from './pages/RentRoom'
+import Maps from './pages/Maps'
 
 function App() {
 
@@ -60,7 +62,9 @@ const [user, setUser] = useState({id: null, isAdmin: null, email: null, userName
       <Route exact path="/" element={<Home/>}/>
       <Route exact path="/register" element={<Register/>}/>
       <Route exact path="/login" element={<Login/>}/>
+      <Route exact path="/use_maps" element={<Maps/>}/>
       <Route exact path="/bedspace_type" element={<Bedspace/>}/>
+      <Route exact path="/rentroom_type" element={<Rooms/>}/>
       <Route exact path="*" element={<Error/>}/>
     </Routes>
     </Container>
