@@ -6,13 +6,13 @@ const auth = require("../auth")
 
 
 module.exports.checkEmailExists = ( req, res) => {
-	console.log(req.body);
-	User.findOne({email: req.body.email})
+	console.log(req.params.id);
+	User.findOne({email: req.params.id})
 	.then(result => {
 		if(result !== null){
-			return res.send("Email is already registered")
+			return res.send(false)
 		} else {
-			return res.send(`Email ${req.body.email} is available.`)
+			return res.send(true)
 
 		}
 	})

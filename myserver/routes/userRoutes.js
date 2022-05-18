@@ -10,7 +10,7 @@ const {verify, verifyAdmin} = auth;
 
 router.post('/register', userControllers.registerUser)
 
-router.get('/checkEmailExists', userControllers.checkEmailExists)
+router.get('/checkEmailExists/:id', userControllers.checkEmailExists)
 
 router.post('/login', userControllers.loginUser)
 
