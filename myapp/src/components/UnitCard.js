@@ -27,12 +27,12 @@ export default function UnitCard ({unitProp}) {
 			{unitOwner}
 			</Card.Title>
 			<hr/>
-			<Container className="card-details p-0 mt-0 mb-4">
+			<Container className="p-0 mt-0 mb-4">
 			<p><strong>Unit Type: </strong>{unitType}</p>
 			<p><strong>Location: </strong>{unitLoc}</p>
 			<p><strong>Price: </strong>{unitPrice}</p>
 			<p><strong>Unit Size: </strong>{unitSize}</p>
-			<Card.Text>
+			{/*<Card.Text>
 			<p>
 			<strong>Details:</strong><br/>
 			Posted By: {postedBy}<br/>
@@ -41,17 +41,17 @@ export default function UnitCard ({unitProp}) {
 			</p>
 			<span>Details Link: </span><a target="_blank" href={unitLink} rel="noopener noreferrer" title="Go to LinkedIn Profile" className="text-dark">Click here</a>
 
-			</Card.Text>
+			</Card.Text>*/}
 			</Container>
 			{/*<Image src={image} style={style} className="mx-auto d-block"/>*/}
 
 			<Row className="justify-content-center">
 			<Col xs={6} >
-			<Button  as= {Link} to={`/products/${_id}`} className="d-block my-2 bg-info text-dark card-btn" >Chat Agent</Button>
+			<Button  as= {Link} to={`/products/${_id}`} variant="outline-info" className="d-block my-2 text-dark card-btn" >Chat Agent</Button>
 			</Col>
 
 			<Col xs={6} >
-			<Button  as= {Link} to={`/products/orderFull/${_id}`} className="d-block my-2 bg-secondary text-light card-btn" disabled>Avail Unit</Button>
+			<Button  as= {Link} to={`/view_units/${_id}`} variant="outline-info"  className="d-block my-2  text-dark card-btn">View Details</Button>
 			</Col>
 
 			{/*<Link to={name} className="mx-auto">Visit Seller Shop</Link>*/}

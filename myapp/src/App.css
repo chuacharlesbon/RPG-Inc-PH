@@ -82,7 +82,10 @@ body {
   width: 36rem;
   height: 20rem;
 }
-
+.unit-image {
+  width: 20rem;
+  height: 15rem;
+}
 
 
 .banner-fade {

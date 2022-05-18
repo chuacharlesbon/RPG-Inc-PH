@@ -43,3 +43,17 @@ module.exports.viewBedspace = (req, res) => {
 	.then(unit => res.send(unit))
 	.catch(error => res.send(error))
 }
+
+module.exports.viewUnit = (req, res) => {
+
+	Unit.find({_id: req.params.id})
+	.then(unit => res.send(unit))
+	.catch(error => res.send(error))
+}
+
+module.exports.searchByLocation = (req, res) => {
+
+	Unit.find({unitType: "Bedspace",unitLoc: {$regex: req.params.id, $options: '$i'}})
+	.then(unit => res.send(unit))
+	.catch(error => res.send(error))
+}

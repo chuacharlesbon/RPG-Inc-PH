@@ -10,6 +10,10 @@ export default function RentBedspace(){
 
 	const [searchItem, setSearchItem] = useState('')
 	const [units, setUnits] = useState([])
+	const [searchUnits, setSearchUnits] = useState([])
+	const [style, setStyle] =  useState({
+		display: "none"
+	})
 
 	useEffect(() => {
 		//fetch('http://localhost:4000/courses')
@@ -31,21 +35,31 @@ export default function RentBedspace(){
 	function searchItems(e) {
 		
 		e.preventDefault()
+		setStyle({
+			display: "flex"
+		})
 
-		/*fetch(`https://immense-lake-17505.herokuapp.com/products/getSingleProductParams/${searchItem}`)
+		fetch(`http://localhost:4000/units/searchLoc/${searchItem}`)
 		.then(res => {
 			
 			return res.json()
 		})
 		.then(data => {
-			setUnits(data.map(unit =>{
+			setSearchUnits(data.map(unit =>{
 				return (
-		<UnitCard key={unit._id} rentProp={unit}/>
+		<UnitCard key={unit._id} unitProp={unit}/>
 
 	)
 			}))
 
-		})*/
+		})
+	}
+
+	function clearUnits(){
+		setSearchUnits([])
+		setStyle({
+			display: "none"
+		})
 	}
 
 	return(
@@ -77,8 +91,15 @@ export default function RentBedspace(){
 	</Form.Text>
 	</Form.Group>
 	
-	<Button type="submit" className="my-3 text-center mx-auto text-dark bg-info">Search</Button>
+	<Button type="submit" variant="outline-info" className="my-3 text-center mx-1 text-dark">Search</Button>
+	<Button variant="outline-info" className="my-3 text-center mx-1 text-dark" onClick={()=>clearUnits()}>Clear</Button>
 	</Form>
+
+	<Row className="justify-content-md-center bg-light m-1 p-1" style={style}>
+	<h3>Search Results</h3>
+	<hr/>
+	{searchUnits}
+	</Row>
 
 	<Row className="justify-content-md-center">	
 	{units}

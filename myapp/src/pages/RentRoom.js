@@ -63,7 +63,7 @@ export default function RentRoom(){
 	</Form.Text>
 	</Form.Group>
 	
-	<Button type="submit" className="my-3 text-center mx-auto text-dark bg-info">Search</Button>
+	<Button type="submit" variant="outline-info"  className="my-3 text-center mx-auto text-dark">Search</Button>
 	</Form>
 
 	<Row className="justify-content-md-center">	

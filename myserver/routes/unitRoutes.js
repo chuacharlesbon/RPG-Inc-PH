@@ -14,5 +14,9 @@ router.post('/create', verify, unitControllers.createUnit)
 
 router.get('/bedspace', unitControllers.viewBedspace)
 
+router.get('/viewUnit/:id', unitControllers.viewUnit)
+
+router.get('/searchLoc/:id', unitControllers.searchByLocation)
+
 
 module.exports = router;
