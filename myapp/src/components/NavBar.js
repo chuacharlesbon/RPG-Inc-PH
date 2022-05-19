@@ -1,10 +1,14 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 import {FormControl, Form, Navbar, Nav, Container, Button, NavDropdown} from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import rpg from './images/rpg-logo.png'
 
+
 export default function NavBar() {
+
+	const [location, setLocation] = useState('')
+	const navigate = useNavigate()
 
 	return(
 
@@ -42,14 +46,16 @@ export default function NavBar() {
 	        <Nav.Link as={Link} to="/register"  className="text-white text-mulish m-1 nav-btn">Register</Nav.Link>
 	        <Nav.Link as={Link} to="/login" className="text-white text-mulish m-1 nav-btn">Login</Nav.Link>
 	      </Nav>
-	      <Form className="d-flex">
+	      <Form className="d-flex" onSubmit={() => navigate(`/search_results/${location}`, { replace: true })}>
 	        <FormControl
 	          type="search"
 	          placeholder="Search by Location"
 	          className="me-2"
 	          aria-label="Search"
+	          value={location}
+	          onChange={e => setLocation(e.target.value)}
 	        />
-	        <Button variant="outline-danger">Search</Button>
+	        <Button variant="outline-danger" as={Link} to={`/search_results/${location}`}>Search</Button>
 	      </Form>
 	    </Navbar.Collapse>
 	  </Container>

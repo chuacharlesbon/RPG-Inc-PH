@@ -13,6 +13,7 @@ import Bedspace from './pages/RentBedspace'
 import Rooms from './pages/RentRoom'
 import Maps from './pages/Maps'
 import UnitView from './components/UnitView'
+import SearchResults from './pages/SearchResults'
 
 function App() {
 
@@ -64,6 +65,7 @@ const [user, setUser] = useState({id: null, isAdmin: null, email: null, userName
       <Route exact path="/register" element={<Register/>}/>
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path="/use_maps" element={<Maps/>}/>
+      <Route exact path="/search_results/:unitId" element={<SearchResults/>}/>
       <Route exact path="/bedspace_type" element={<Bedspace/>}/>
       <Route exact path="/view_units/:unitId" element={<UnitView/>}/>
       <Route exact path="/rentroom_type" element={<Rooms/>}/>

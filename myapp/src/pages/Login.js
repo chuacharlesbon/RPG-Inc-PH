@@ -4,6 +4,7 @@ import { Form, Button, Col, Container} from 'react-bootstrap'
 import Image from "react-bootstrap/Image";
 import Swal from "sweetalert2"
 import UserContext from '../UserContext'
+import AdsRooms from '../components/AdsRooms'
 
 export default function Login(props){
 
@@ -245,6 +246,8 @@ export default function Login(props){
 		</Col>
 		
 		</Container>
+
+		<AdsRooms/>
 
 		</>
 

@@ -30,6 +30,12 @@ body {
   overflow-y: scroll;
   height: 15rem;
 }
+.cardHighlight {
+  min-height: 100%;
+}
+.card-body {
+  min-height: 25rem;
+}
 
 #navbarScrollingDropdown {
   color: white;
@@ -41,10 +47,16 @@ body {
   font-family: 'Mulish', sans-serif;
   font-weight: bold;
 }
+.nav-btn {
+  transition: 0.7s;
+}
 .nav-btn:hover {
-  border-bottom: red 0.3rem solid;
+  border-bottom: red 0.1rem solid !important;
   margin-bottom: 0;
   margin-top: 0;
+  background-color: orangered !important;
+  color: white !important;
+  transition: 0.7s;
 }
 .brand-logo {
   width: 7rem;
@@ -72,8 +84,15 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
 }
+.text-banner {
+  border-bottom: 0.2rem solid dimgray;
+}
 
 
+.image-highlights {
+    height: 8rem;
+    width: 12rem;
+}
 .image-banner {
   width: 40rem;
   height: 27rem;
@@ -86,6 +105,7 @@ body {
   width: 20rem;
   height: 15rem;
 }
+
 
 
 .banner-fade {
@@ -122,4 +142,36 @@ body {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+}
+
+@media screen and (max-width: 425px) /*Mobile (+/-) 6inch Setting section*/
+{
+.video-card {
+  width: 15rem !important;
+  height: 10rem !important;
+}
+}
+
+@media screen and (min-width: 426px) /*Mobile (+/-) 6inch Setting section*/
+{
+.video-card {
+  width: 20rem !important;
+  height: 14rem !important;
+}
+}
+
+@media screen and (min-width: 768px) /*Mobile (+/-) 6inch Setting section*/
+{
+.video-card {
+  width: 24rem !important;
+  height: 17rem !important;
+}
+}
+
+@media screen and (min-width: 1024px) /*Mobile (+/-) 6inch Setting section*/
+{
+.video-card {
+  width: 30rem !important;
+  height: 20rem !important;
+}
 }

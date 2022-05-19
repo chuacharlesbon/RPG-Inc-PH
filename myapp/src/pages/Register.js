@@ -4,6 +4,7 @@ import { Navigate, Link } from 'react-router-dom'
 import Swal from "sweetalert2"
 import UserContext from "../UserContext"
 import Banner from '../components/Banner'
+import AdsUnits from '../components/AdsUnits'
 
 export default function Register(){
 
@@ -327,6 +328,9 @@ export default function Register(){
 
 		</Col>
 		</Row>
+
+
+		<AdsUnits/>
 
 		</>
 		)

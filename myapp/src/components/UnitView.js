@@ -132,7 +132,7 @@ fetch(`http://localhost:4000/units/viewUnit/${unitId}`)
 
 			
 
-			<Button variant="outline-info" onClick={()=> enroll(unitId)}>Chat Agent</Button>	
+			<Button variant="outline-secondary" className="nav-btn" onClick={()=> enroll(unitId)}>Chat Agent</Button>	
 		</Card.Body>
 		</Col>
 

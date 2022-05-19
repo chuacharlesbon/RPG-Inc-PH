@@ -47,11 +47,11 @@ export default function UnitCard ({unitProp}) {
 
 			<Row className="justify-content-center">
 			<Col xs={6} >
-			<Button  as= {Link} to={`/products/${_id}`} variant="outline-info" className="d-block my-2 text-dark card-btn" >Chat Agent</Button>
+			<Button  as= {Link} to={`/products/${_id}`} variant="outline-secondary" className="nav-btn d-block my-2 text-dark card-btn" >Chat Agent</Button>
 			</Col>
 
 			<Col xs={6} >
-			<Button  as= {Link} to={`/view_units/${_id}`} variant="outline-info"  className="d-block my-2  text-dark card-btn">View Details</Button>
+			<Button  as= {Link} to={`/view_units/${_id}`} variant="outline-secondary"  className="nav-btn d-block my-2  text-dark card-btn">View Details</Button>
 			</Col>
 
 			{/*<Link to={name} className="mx-auto">Visit Seller Shop</Link>*/}

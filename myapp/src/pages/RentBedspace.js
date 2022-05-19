@@ -9,6 +9,7 @@ import UnitCard from '../components/UnitCard'
 export default function RentBedspace(){
 
 	const [searchItem, setSearchItem] = useState('')
+		const [searchNum, setSearchNum] = useState(0)
 	const [units, setUnits] = useState([])
 	const [searchUnits, setSearchUnits] = useState([])
 	const [style, setStyle] =  useState({
@@ -20,7 +21,7 @@ export default function RentBedspace(){
 		fetch('http://localhost:4000/units/bedspace')
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
+			setSearchNum(data.length)
 			setUnits(data.map(unit => {
 	
 	return (
@@ -91,12 +92,13 @@ export default function RentBedspace(){
 	</Form.Text>
 	</Form.Group>
 	
-	<Button type="submit" variant="outline-info" className="my-3 text-center mx-1 text-dark">Search</Button>
-	<Button variant="outline-info" className="my-3 text-center mx-1 text-dark" onClick={()=>clearUnits()}>Clear</Button>
+	<Button type="submit" variant="outline-secondary" className="my-3 text-center mx-1 text-dark nav-btn">Search</Button>
+	<Button variant="outline-secondary" className="my-3 text-center mx-1 text-dark" onClick={()=>clearUnits()}>Clear</Button>
 	</Form>
 
 	<Row className="justify-content-md-center bg-light m-1 p-1" style={style}>
-	<h3>Search Results</h3>
+	<h5>Search Results</h5>
+	<h5 className="pb-3">Results found ({searchNum} units)</h5>
 	<hr/>
 	{searchUnits}
 	</Row>

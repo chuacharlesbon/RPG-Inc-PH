@@ -3,35 +3,67 @@ import {Row, Col, Container, Nav, Navbar, NavDropdown, Form, Button} from 'react
 import {Link, Navigate} from 'react-router-dom'
 import Image from "react-bootstrap/Image";
 import UserContext from '../UserContext'
+import UnitCard from '../components/UnitCard'
 
 
 export default function RentRoom(){
 
 	const [searchItem, setSearchItem] = useState('')
+	const [searchNum, setSearchNum] = useState(0)
 	const [units, setUnits] = useState([])
+	const [searchUnits, setSearchUnits] = useState([])
+	const [style, setStyle] =  useState({
+		display: "none"
+	})
 
 	console.log(searchItem)
 
+	useEffect(() => {
+		//fetch('http://localhost:4000/courses')
+		fetch('http://localhost:4000/units/rooms')
+		.then(res => res.json())
+		.then(data => {
+			console.log(data)
+			setUnits(data.map(unit => {
 	
+	return (
+		//key used to identify each child
+		<UnitCard key={unit._id} unitProp={unit}/>
+
+	)
+	}))
+	})
+	}, [])
 
 	function searchItems(e) {
 		
-		/*e.preventDefault()
+		e.preventDefault()
+		setStyle({
+			display: "flex"
+		})
 
-		fetch(`https://immense-lake-17505.herokuapp.com/products/getSingleProductParams/${searchItem}`)
+		fetch(`http://localhost:4000/units/roomsLoc/${searchItem}`)
 		.then(res => {
 			
 			return res.json()
 		})
 		.then(data => {
-			setUnits(data.map(unit =>{
+			setSearchNum(data.length)
+			setSearchUnits(data.map(unit =>{
 				return (
-		<UnitCard key={unit._id} rentProp={unit}/>
+		<UnitCard key={unit._id} unitProp={unit}/>
 
 	)
 			}))
 
-		})*/
+		})
+	}
+
+	function clearUnits(){
+		setSearchUnits([])
+		setStyle({
+			display: "none"
+		})
 	}
 
 	return(
@@ -63,8 +95,16 @@ export default function RentRoom(){
 	</Form.Text>
 	</Form.Group>
 	
-	<Button type="submit" variant="outline-info"  className="my-3 text-center mx-auto text-dark">Search</Button>
+	<Button type="submit" variant="outline-secondary"  className="my-3 text-center mx-auto text-dark nav-btn">Search</Button>
+	<Button variant="outline-secondary" className="my-3 text-center mx-1 text-dark" onClick={()=>clearUnits()}>Clear</Button> 
 	</Form>
+
+	<Row className="justify-content-md-center bg-light m-1 p-1" style={style}>
+	<h5>Search Results</h5>
+	<h5 className="pb-3">Results found ({searchNum} units)</h5>
+	<hr/>
+	{searchUnits}
+	</Row>
 
 	<Row className="justify-content-md-center">	
 	{units}
