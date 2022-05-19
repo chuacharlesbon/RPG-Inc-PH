@@ -57,6 +57,9 @@ let unitSchema = new mongoose.Schema({
 	},
 	dateModified: {
 		type: String
+	},
+	imageLink: {
+		type: String
 	}
 
 });

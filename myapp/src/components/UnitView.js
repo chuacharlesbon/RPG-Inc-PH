@@ -5,7 +5,7 @@ import Image from "react-bootstrap/Image";
 import UserContext from '../UserContext'
 import Swal from 'sweetalert2'
 
-export default function CourseView(){
+export default function UnitView(){
 
 const {user} = useContext(UserContext)
 const [unitOwner, setUnitOwner] = useState('')
@@ -20,6 +20,7 @@ const [agentName, setAgentName] = useState('')
 const [agentNo, setAgentNo] = useState('')
 const [unitLink, setUnitLink] = useState('')
 const [unitSize, setUnitSize] = useState('')
+const [imageLink, setImageLink] = useState('')
 
 /*
 
@@ -83,6 +84,7 @@ fetch(`http://localhost:4000/units/viewUnit/${unitId}`)
 	setAgentName(data[0].agentName)
 	setPostedBy(data[0].postedBy)
 	setDatePosted(data[0].datePosted)
+	setImageLink(data[0].imageLink)
 
 
 })
@@ -115,6 +117,7 @@ fetch(`http://localhost:4000/units/viewUnit/${unitId}`)
 			<p><strong>Unit Type: </strong>{unitType}</p>
 			<p><strong>Location: </strong>{unitLoc}</p>
 			<p><strong>Price: </strong>{unitPrice}</p>
+			<p><strong>Status: </strong>{status}</p>
 			
 			<Card.Text>
 			<p>
@@ -135,7 +138,7 @@ fetch(`http://localhost:4000/units/viewUnit/${unitId}`)
 
 		<Col  lg={6} md={10} xs={12} className="mx-auto text-center p-2">
 
-		
+		{/*<Image src={imageLink} className="img-fluid mx-auto d-block unit-image"/>*/}
 
 		<Image src="https://q-xx.bstatic.com/images/hotel/max500/945/94569344.jpg" className="img-fluid mx-auto d-block unit-image"/>
 		<p><strong>Unit Size: </strong>{unitSize}</p>

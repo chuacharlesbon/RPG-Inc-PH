@@ -31,7 +31,7 @@ export default function UnitCard ({unitProp}) {
 			<p><strong>Unit Type: </strong>{unitType}</p>
 			<p><strong>Location: </strong>{unitLoc}</p>
 			<p><strong>Price: </strong>{unitPrice}</p>
-			<p><strong>Unit Size: </strong>{unitSize}</p>
+			<p><strong>Status: </strong>{status}</p>
 			{/*<Card.Text>
 			<p>
 			<strong>Details:</strong><br/>
