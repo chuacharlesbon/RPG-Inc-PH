@@ -34,7 +34,7 @@ export default function Login(props){
 	function LoginUser(e){
 		e.preventDefault()
 
-		fetch('https://immense-lake-17505.herokuapp.com/users/login', {
+		fetch('http://localhost:4000/users/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -46,15 +46,14 @@ export default function Login(props){
 		})
 		.then(res => res.json())
 		.then(data => {
-			//console.log(data)
-//access is the properties of console.log(data)
+			
 			if(typeof data.accessToken !== "undefined"){
 				localStorage.setItem('token', data.accessToken)
 				retrieveUserDetails(data.accessToken)
 				Swal.fire({
 					title: "Login Successful",
 					icon: "success",
-					text: "Welcome to ShopNetwork!"
+					text: "Welcome to RPGH Inc!"
 				})
 			}else {
 				Swal.fire({
@@ -65,22 +64,11 @@ export default function Login(props){
 			}
 		})
 
-//set email of authenticated user to local storage 
-//localStorage.setItem("key", value)
-		//localStorage.setItem("email", email)
-
-//to access user information, it can be done using localStorrage, this is necessary to update the user state which will help update the App component and render it to avoid refreshing the page upon user login and logout
-
-//when state change components are re-rendered and the Appnavabr component will be updated based on the user credentials
-		/*setUser({
-			email: localStorage.getItem('email')
-		})*/
-
 		setEmail('')
 		setPassword('')
 
 		const retrieveUserDetails = (token) => {
-			fetch('https://immense-lake-17505.herokuapp.com/users/details', {
+			fetch('http://localhost:4000/users/details', {
 				method: "POST",
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -88,33 +76,25 @@ export default function Login(props){
 			})
 			.then(res => (res.json())
 			.then(data => {
-				//console.log(data)
+				console.log(data._id)
+				console.log(data.isAdmin)
+				console.log(data.userName)
+				console.log(data.email)
 
-				/*if(data.isAdmin === true){*/
 				setUser({
 					id: data._id,
 					isAdmin: data.isAdmin,
 					userName: data.firstName + " " + data.lastName,
 					email: data.email
 				})
-				/*} else {
-					setUser({
-					id: data._id,
-					isAdmin: data.isAdmin,
-					userName: data.firstName + " " + data.lastName,
-					email: data.email
-					})
-				}*/
-
-
-
+			
 			}))
 		}
 
 		setStyle({
 			color: "red"
 		})
-		//alert("You are now login")
+		
 	}
 
 	useEffect(() => {
@@ -135,9 +115,9 @@ export default function Login(props){
 
 	return(
 		
-		(user.isAdmin !== true && user.id !== null && user.id !== undefined)?
+		(user.id !== null)?
 		<>
-		<Navigate to="/products/categoryFood"/>
+		<Navigate to="/option_select"/>
 		</>
 		: (user.isAdmin === true && user.id !== null )?
 
@@ -153,7 +133,7 @@ export default function Login(props){
 
 		<Image src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW4lMjBzaG9wcGluZ3xlbnwwfHwwfHw%3D&w=1000&q=80" /*style={style}*/ className="mx-auto text-center d-none d-lg-block image-login img-fluid"/>
 		<h4 className="text-white">We are excited to welcome you!</h4>
-		<p className="text-white">Create account with us!<Link to="/register" className="mx-2">Click Here</Link></p>
+		<p className="text-white">Create account with us!<Link  to="/register" className="mx-2">Click Here</Link></p>
 
 
 		</Col>
@@ -165,14 +145,14 @@ export default function Login(props){
 			<Form.Label><h5>Email Address:</h5></Form.Label>
 			<Form.Text className="text-muted d-block">Please use registered email.
 			</Form.Text>
-			<Form.Control type="email" placeholder="Enter your email here" autocomplete required value={email} onChange={e => setEmail(e.target.value)}/>
+			<Form.Control autocomplete type="email" placeholder="Enter your email here" autocomplete required value={email} onChange={e => setEmail(e.target.value)}/>
 			</Form.Group>
 
 			<Form.Group className="my-2" controlId="password">
 			<Form.Label><h5>Enter your Password:</h5></Form.Label>
 			<Form.Text className="d-block" style={style}>{message1}
 			</Form.Text>
-			<Form.Control type="password" placeholder="Input your password here" required value={password} onChange={e => setPassword(e.target.value)}/>
+			<Form.Control autocomplete type="password" placeholder="Input your password here" required value={password} onChange={e => setPassword(e.target.value)}/>
 			</Form.Group>
 
 			<Form.Text className="text-muted d-block">{message}
@@ -199,7 +179,7 @@ export default function Login(props){
 		:
 
 		<>
-		<Container className="d-flex px-1 bg-clear justify-content-center align-items-center text-center mt-5 loginbody">
+		<Container className="d-flex px-1 bg-clear justify-content-center align-items-center text-center mb-5 mt-5 loginbody">
 		
 
 		<Col lg={5} className="d-none d-lg-block mx-auto">

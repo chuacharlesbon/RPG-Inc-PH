@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {FormControl, Form, Navbar, Nav, Container, Button, NavDropdown} from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
+import UserContext from '../UserContext'
 import rpg from './images/rpg-logo.png'
 
 
 export default function NavBar() {
 
+ 	const {user} = useContext(UserContext)
 	const [location, setLocation] = useState('')
 	const navigate = useNavigate()
 
@@ -43,8 +45,17 @@ export default function NavBar() {
 	          <NavDropdown.Divider />
 	          <NavDropdown.Item href="#action3">Be A Mall Tenant</NavDropdown.Item>
 	        </NavDropdown>
+	        {
+	        (user.id !== null)?
+	        <Nav.Link as={Link} to="/logout" className="text-white text-mulish m-1 nav-btn">Logout</Nav.Link>
+	        :
+	        
+	        <>
 	        <Nav.Link as={Link} to="/register"  className="text-white text-mulish m-1 nav-btn">Register</Nav.Link>
 	        <Nav.Link as={Link} to="/login" className="text-white text-mulish m-1 nav-btn">Login</Nav.Link>
+	        </>
+	        }
+	        
 	      </Nav>
 	      <Form className="d-flex" onSubmit={() => navigate(`/search_results/${location}`, { replace: true })}>
 	        <FormControl

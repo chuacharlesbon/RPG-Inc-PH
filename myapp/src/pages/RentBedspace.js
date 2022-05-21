@@ -15,6 +15,13 @@ export default function RentBedspace(){
 	const [style, setStyle] =  useState({
 		display: "none"
 	})
+	const [loading, setLoading] = useState(true);
+
+	  useEffect(() => {
+	    setTimeout(() => {
+	      setLoading(false);
+	    }, 2000);
+	  }, []);
 
 	useEffect(() => {
 		//fetch('http://localhost:4000/courses')
@@ -66,8 +73,23 @@ export default function RentBedspace(){
 	return(
 
 	<>
+	{
+	
+	loading?
 
-	<Container className="mx-auto bg-clear my-4">
+	<>
+	<Container className="errorpage text-center d-flex align-items-center justify-content-center">
+	<div className="bg-light p-2 rounded">
+	<h3>Page is Loading...</h3>
+	<p>Please wait</p>
+	</div>
+	</Container>
+	</>
+
+	:
+
+	<>
+	<Container className="mx-auto bg-clear my-4 banner-fade">
 	<Row className="justify-content-center align-items-center">
 	
 	<Col xs={12} lg={6}>
@@ -106,8 +128,13 @@ export default function RentBedspace(){
 	<Row className="justify-content-md-center">	
 	{units}
 	</Row>
+	</>
+
+	}
 
 	</>
+
+	
 
 
 		)

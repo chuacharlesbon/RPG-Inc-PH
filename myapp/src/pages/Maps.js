@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Row, Col, Container, Button, Form, FormControl} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import AdsProp from '../components/AdsProperties'
@@ -7,7 +7,13 @@ export default function Maps(){
 
 	const [search, setSearch] = useState("Makati City")
 	const [newSearch, setNewSearch] = useState('')
+	const [loading, setLoading] = useState(true);
 
+	  useEffect(() => {
+	    setTimeout(() => {
+	      setLoading(false);
+	    }, 2000);
+	  }, []);
 
 	search.replace(/\s/g, '%20')
 
@@ -42,7 +48,16 @@ export default function Maps(){
 	      	</Form>
 	</Col>
 	<Col xs={12} lg={10} xl={8} className="mx-auto">
-	<iframe title="search_maps" id="gmap_canvas" src={`https://maps.google.com/maps?q=${search}&t=&z=13&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+	{
+		loading?
+		<>
+		<p>Please wait...</p>
+		<h1 className="text-center">Your Map is loading</h1>
+		</>
+		:
+		<iframe title="search_maps" id="gmap_canvas" src={`https://maps.google.com/maps?q=${search}&t=&z=13&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+
+	}
 	</Col>
 	</Row>
 	</Container>

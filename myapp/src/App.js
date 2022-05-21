@@ -9,12 +9,14 @@ import Home from './pages/Home'
 import Error from './pages/ErrorPage'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import Logout from './pages/Logout'
 import Bedspace from './pages/RentBedspace'
 import Rooms from './pages/RentRoom'
 import Maps from './pages/Maps'
 import UnitView from './components/UnitView'
 import SearchResults from './pages/SearchResults'
 import CreateUnit from './pages/CreateUnit'
+import Options from './pages/Options'
 
 function App() {
 
@@ -65,7 +67,9 @@ const [user, setUser] = useState({id: null, isAdmin: null, email: null, userName
       <Route exact path="/" element={<Home/>}/>
       <Route exact path="/register" element={<Register/>}/>
       <Route exact path="/login" element={<Login/>}/>
+      <Route exact path="/logout" element={<Logout/>}/>
       <Route exact path="/use_maps" element={<Maps/>}/>
+      <Route exact path="/option_select" element={<Options/>}/>
       <Route exact path="/search_results/:unitId" element={<SearchResults/>}/>
       <Route exact path="/bedspace_type" element={<Bedspace/>}/>
       <Route exact path="/view_units/:unitId" element={<UnitView/>}/>
