@@ -27,7 +27,7 @@ export default function RentRoom(){
 
 	useEffect(() => {
 		//fetch('http://localhost:4000/courses')
-		fetch('http://localhost:4000/units/rooms')
+		fetch('https://glacial-meadow-34891.herokuapp.com/units/rooms')
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)
@@ -49,7 +49,7 @@ export default function RentRoom(){
 			display: "flex"
 		})
 
-		fetch(`http://localhost:4000/units/roomsLoc/${searchItem}`)
+		fetch(`https://glacial-meadow-34891.herokuapp.com/units/roomsLoc/${searchItem}`)
 		.then(res => {
 			
 			return res.json()

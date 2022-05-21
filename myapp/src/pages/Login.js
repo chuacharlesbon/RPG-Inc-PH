@@ -34,7 +34,7 @@ export default function Login(props){
 	function LoginUser(e){
 		e.preventDefault()
 
-		fetch('http://localhost:4000/users/login', {
+		fetch('https://glacial-meadow-34891.herokuapp.com/users/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ export default function Login(props){
 		setPassword('')
 
 		const retrieveUserDetails = (token) => {
-			fetch('http://localhost:4000/users/details', {
+			fetch('https://glacial-meadow-34891.herokuapp.com/users/details', {
 				method: "POST",
 				headers: {
 					Authorization: `Bearer ${token}`

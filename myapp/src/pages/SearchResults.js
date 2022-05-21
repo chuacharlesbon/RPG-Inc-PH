@@ -14,7 +14,7 @@ export default function SearchResults(){
 
 	useEffect(() => {
 		//fetch('http://localhost:4000/courses')
-		fetch(`http://localhost:4000/units/searchAll/${unitId}`)
+		fetch(`https://glacial-meadow-34891.herokuapp.com/units/searchAll/${unitId}`)
 		.then(res => res.json())
 		.then(data => {
 			setSearchNum(data.length)

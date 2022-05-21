@@ -32,7 +32,7 @@ export default function AdminCreateUnit(){
 	function createItem(e){
 		e.preventDefault()
 
-		fetch('https://immense-lake-17505.herokuapp.com/units/create', {
+		fetch('https://glacial-meadow-34891.herokuapp.com/units/create', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

@@ -68,7 +68,7 @@ const enroll = (unitId) => {
 
 useEffect(() => {
 	//console.log(courseId)
-fetch(`http://localhost:4000/units/viewUnit/${unitId}`)
+fetch(`https://glacial-meadow-34891.herokuapp.com/units/viewUnit/${unitId}`)
 .then(res => res.json())
 .then(data => {
 

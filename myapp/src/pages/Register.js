@@ -43,7 +43,7 @@ export default function Register(){
 	function registerUser(e){
 		e.preventDefault()
 
-		fetch('http://localhost:4000/users/register', {
+		fetch('https://glacial-meadow-34891.herokuapp.com/users/register', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ export default function Register(){
 
 	useEffect(() => {
 
-	fetch(`http://localhost:4000/users/checkEmailExists/${email}`)
+	fetch(`https://glacial-meadow-34891.herokuapp.com/users/checkEmailExists/${email}`)
 		.then(res => res.json())
 		.then(data => {
 			if(data === true){

@@ -25,7 +25,7 @@ export default function RentBedspace(){
 
 	useEffect(() => {
 		//fetch('http://localhost:4000/courses')
-		fetch('http://localhost:4000/units/bedspace')
+		fetch('https://glacial-meadow-34891.herokuapp.com/units/bedspace')
 		.then(res => res.json())
 		.then(data => {
 			setSearchNum(data.length)
@@ -47,7 +47,7 @@ export default function RentBedspace(){
 			display: "flex"
 		})
 
-		fetch(`http://localhost:4000/units/searchLoc/${searchItem}`)
+		fetch(`https://glacial-meadow-34891.herokuapp.com/units/searchLoc/${searchItem}`)
 		.then(res => {
 			
 			return res.json()
