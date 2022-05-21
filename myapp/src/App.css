@@ -63,6 +63,16 @@ body {
   color: white !important;
   transition: 0.7s;
 }
+.clear-btn:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+.clear-btn:active {
+  background-color: whitesmoke;
+  cursor: pointer;
+  border-style: inset;
+  border:  1px solid whitesmoke;
+}
 .brand-logo {
   width: 7rem;
   height: 3rem;
@@ -123,6 +133,10 @@ body {
   padding-right: 1rem !important;
   padding-left: 1rem !important;
 }
+.bg-shadow {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
 
 
 
@@ -156,6 +170,20 @@ body {
 .unit-image {
   width: 20rem;
   height: 15rem;
+}
+.image-zuitt {
+  width: 20rem;
+  height: 20rem;
+}
+.image-loading {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.myModal {
+  background-image: url('https://assets.zuitt.co/assets/zuitt/zuittweb_tn.jpg');
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
 }
 
 

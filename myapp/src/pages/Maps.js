@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Row, Col, Container, Button, Form, FormControl} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import Image from "react-bootstrap/Image";
 import AdsProp from '../components/AdsProperties'
 
 export default function Maps(){
@@ -47,12 +48,13 @@ export default function Maps(){
 	        />
 	      	</Form>
 	</Col>
-	<Col xs={12} lg={10} xl={8} className="mx-auto">
+	<Col xs={12} lg={10} xl={8} className="mx-auto bg-light my-3">
 	{
 		loading?
 		<>
-		<p>Please wait...</p>
-		<h1 className="text-center">Your Map is loading</h1>
+		<p className="text-secondary">Please wait...</p>
+		<Image src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" className="img-fluid image-loading" />
+		<h1 className="text-center text-secondary">Your Map is loading</h1>
 		</>
 		:
 		<iframe title="search_maps" id="gmap_canvas" src={`https://maps.google.com/maps?q=${search}&t=&z=13&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>

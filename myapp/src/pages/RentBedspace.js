@@ -9,7 +9,7 @@ import UnitCard from '../components/UnitCard'
 export default function RentBedspace(){
 
 	const [searchItem, setSearchItem] = useState('')
-		const [searchNum, setSearchNum] = useState(0)
+	const [searchNum, setSearchNum] = useState(0)
 	const [units, setUnits] = useState([])
 	const [searchUnits, setSearchUnits] = useState([])
 	const [style, setStyle] =  useState({
@@ -79,9 +79,10 @@ export default function RentBedspace(){
 
 	<>
 	<Container className="errorpage text-center d-flex align-items-center justify-content-center">
-	<div className="bg-light p-2 rounded">
+	<div className="bg-light p-4 rounded">
 	<h3>Page is Loading...</h3>
 	<p>Please wait</p>
+	<Image src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" className="img-fluid image-loading" />
 	</div>
 	</Container>
 	</>
@@ -105,7 +106,7 @@ export default function RentBedspace(){
 
 	</Container>
 
-	<Form id="form-search" className="rounded p-3 my-3 mx-auto bg-light" onSubmit={e => searchItems(e)}>
+	<Form id="form-search" className="rounded p-3 my-3 mx-auto bg-light banner-fade" onSubmit={e => searchItems(e)}>
 	<h4 className="text-center">Search Bedspace Unit By Location</h4>
 			
 	<Form.Group controlId="searchItem">
@@ -125,7 +126,7 @@ export default function RentBedspace(){
 	{searchUnits}
 	</Row>
 
-	<Row className="justify-content-md-center">	
+	<Row className="justify-content-md-center banner-fade">	
 	{units}
 	</Row>
 	</>

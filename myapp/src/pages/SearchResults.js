@@ -8,9 +8,17 @@ import UnitCard from '../components/UnitCard'
 
 export default function SearchResults(){
 
-	const [searchNum, setSearchNum] = useState(0)
+	const [searchNum, setSearchNum] = useState('')
 	const [units, setUnits] = useState([])
 	const {unitId} = useParams()
+
+	const [loading, setLoading] = useState(true);
+
+	  useEffect(() => {
+	    setTimeout(() => {
+	      setLoading(false);
+	    }, 2000);
+	  }, []);
 
 	useEffect(() => {
 		//fetch('http://localhost:4000/courses')
@@ -46,9 +54,46 @@ export default function SearchResults(){
 
 	</Container>
 
-	<Row className="justify-content-md-center">	
-	{units}
-	</Row>
+	{
+		loading?
+
+		<>
+		<Container className="errorpage text-center d-flex align-items-center justify-content-center">
+		<div className="bg-light p-4 rounded">
+		<h3>Page is Loading...</h3>
+		<p>Please wait</p>
+		<Image src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" className="img-fluid image-loading" />
+		</div>
+		</Container>
+		</>
+
+		:
+
+		<>
+		{
+		(searchNum !== 0)?
+
+		<Row className="justify-content-md-center">	
+		{units}
+		</Row>
+
+		:
+
+		<>
+		<Container className="errorpage text-center d-flex align-items-center justify-content-center">
+		<div className="bg-light p-2 rounded">
+		<h3>No Results found.</h3>
+		<p>Please try another keyword.</p>
+		<Form.Text className="text-muted">TIP: Use single keyword of Street or City</Form.Text>
+		</div>
+		</Container>
+		</>
+
+		}
+		</>
+		
+
+	}
 
 	</>
 

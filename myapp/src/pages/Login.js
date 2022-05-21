@@ -179,7 +179,7 @@ export default function Login(props){
 		:
 
 		<>
-		<Container className="d-flex px-1 bg-clear justify-content-center align-items-center text-center mb-5 mt-5 loginbody">
+		<Container className="d-flex px-1 bg-clear justify-content-center align-items-center text-center mb-5 mt-5 loginbody banner-fade">
 		
 
 		<Col lg={5} className="d-none d-lg-block mx-auto">

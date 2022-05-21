@@ -12,7 +12,6 @@ export default function Register(){
 
 //set isnot a keyword, the state is destrcuturing
 	const {user} = useContext(UserContext)
-
   	const [firstName, setFirstName] = useState('')
   	const [lastName, setLastName] = useState('')
 	const [email, setEmail] = useState('')
@@ -38,6 +37,17 @@ export default function Register(){
 	//console.log(agreed)
 	//console.log(isActive)
 	//console.log(newEmail)
+
+	function clearForm(){
+		setFirstName('')
+		setLastName('')
+		setMobileNo('')
+		setEmail('')
+		setPassword1('')
+		setPassword2('')
+		setResidence('')
+
+	}
 
 
 	function registerUser(e){
@@ -213,8 +223,12 @@ export default function Register(){
 		<Col xs={12} md={10} lg={8} xl={6}>
 		<Form id="form-register" className="border border-secondary p-3 my-3 mx-auto bg-light" onSubmit={e => registerUser(e)}>
 			<h1 className="text-center">Registration Section</h1>
+			<hr/>
+			<p className="text-danger">Required fields are marked with an asterisk ( * )</p>
+
 			<Form.Group controlId="firstName">
 			<Form.Label>First Name:</Form.Label>
+			<span className="m-1 text-danger">*</span>
 			<Form.Control type="text" placeholder="Enter your First Name here" required value={firstName} onChange={e => setFirstName(e.target.value)}/>
 			<Form.Text className="text-muted"> Must not contain special characters ( &#60; 	&#62; &#38;	&#34; &#39; ' "" )
 			</Form.Text>
@@ -222,6 +236,7 @@ export default function Register(){
 
 			<Form.Group controlId="lastName">
 			<Form.Label>Last Name:</Form.Label>
+			<span className="m-1 text-danger">*</span>
 			<Form.Control type="text" placeholder="Enter your Last Name here" required value={lastName} onChange={e => setLastName(e.target.value)}/>
 			<Form.Text className="text-muted">Must not contain special characters ( &#60; 	&#62; &#38;	&#34; &#39; ' " )
 			</Form.Text>
@@ -229,6 +244,7 @@ export default function Register(){
 
 			<Form.Group controlId="mobileNo">
 			<Form.Label>Mobile Number</Form.Label>
+			<span className="m-1 text-danger">*</span>
 			<Form.Control type="text" placeholder="09xxxxxxxxx {091234567890}" required value={mobileNo} onChange={e => setMobileNo(e.target.value)}/>
 			<Form.Text className="text-muted"> You can use your landline number, or include more contacts
 			</Form.Text>
@@ -236,6 +252,7 @@ export default function Register(){
 
 			<Form.Group controlId="residence">
 			<Form.Label>Residential Address:</Form.Label>
+			<span className="m-1 text-danger">*</span>
 			<Form.Control type="text" placeholder="Enter your delivery address here" required value={residence} onChange={e => setResidence(e.target.value)}/>
 			<Form.Text className="text-muted">Must not contain special characters ( &#60; 	&#62; &#38;	&#34; &#39; ' " )
 			</Form.Text>
@@ -243,6 +260,7 @@ export default function Register(){
 
 			<Form.Group controlId="userEmail">
 			<Form.Label>Email Address</Form.Label>
+			<span className="m-1 text-danger">*</span>
 			<Form.Control type="email" placeholder="Enter your email here" required value={email} onChange={e => setEmail(e.target.value)}/>
 			
 			{
@@ -324,6 +342,8 @@ export default function Register(){
 				</Button>
 			}
 			</Form.Group>
+
+			<span className="text-info p-2 clear-btn rounded bg-shadow" onClick={() => clearForm()}>Clear Form</span>
 		</Form>
 
 		</Col>

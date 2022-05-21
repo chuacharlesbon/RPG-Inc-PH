@@ -16,7 +16,7 @@ let unitSchema = new mongoose.Schema({
 		/*Location, City, Region*/
 	},
 	unitPrice: {
-		type: Number,
+		type: String,
 		required: [true, "Unit Price is required"]
 	},
 	unitSize: {

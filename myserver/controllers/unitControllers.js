@@ -40,7 +40,14 @@ let mt = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", 
 
 module.exports.viewBedspace = (req, res) => {
 
-	Unit.find({unitType: "Bedspace"})
+	Unit.find({unitType: {$regex: "Bedspace", $options: '$i'}})
+	.then(unit => res.send(unit))
+	.catch(error => res.send(error))
+}
+
+module.exports.viewRooms = (req, res) => {
+
+	Unit.find({unitType: {$regex: "Single", $options: '$i'}})
 	.then(unit => res.send(unit))
 	.catch(error => res.send(error))
 }
@@ -48,6 +55,13 @@ module.exports.viewBedspace = (req, res) => {
 module.exports.viewUnit = (req, res) => {
 
 	Unit.find({_id: req.params.id})
+	.then(unit => res.send(unit))
+	.catch(error => res.send(error))
+}
+
+module.exports.searchAll = (req, res) => {
+
+	Unit.find({unitLoc: {$regex: req.params.id, $options: '$i'}})
 	.then(unit => res.send(unit))
 	.catch(error => res.send(error))
 }
