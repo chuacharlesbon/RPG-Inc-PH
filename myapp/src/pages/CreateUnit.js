@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 import Swal from "sweetalert2"
 import UserContext from '../UserContext'
 
-export default function AdminCreateProd(){
+export default function AdminCreateUnit(){
 
 //do not use null for initial state due to server schema type: null might contradict turn to type: string 
 
@@ -32,7 +32,7 @@ export default function AdminCreateProd(){
 	function createItem(e){
 		e.preventDefault()
 
-		fetch('https://immense-lake-17505.herokuapp.com/products', {
+/*		fetch('https://immense-lake-17505.herokuapp.com/products', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -48,11 +48,11 @@ export default function AdminCreateProd(){
 			})
 		})
 		.then(res => {
-			//console.log(res)
+			
 			return res.json()
 		})
 		.then(data => {
-			//console.log(data)
+			
 			setCreated(true)
 			Swal.fire({
 					title: "Item Uploaded Successful",
@@ -65,7 +65,9 @@ export default function AdminCreateProd(){
     						popup: 'animate__animated animate__fadeOutUp'
   					}
 				})
-		})}
+		})*/
+
+	}
 
 		/*useEffect(()=>{
 			if(name !== '' && price !== '' && stockAvailable !== '' && category !== ''){
