@@ -50,7 +50,7 @@ export default function Footer () {
 
 		<Col xs={12}  md={6} lg={4} className="text-center mx-auto my-2">
 		<p><Button  as={Link} to="/about" className="bg-tomato text-dark">About the Developer</Button></p>
-		<p><Button  as={Link} to="/"  className="bg-tomato text-dark">About RPG Inc</Button></p>
+		<p><Button  href="https://xffiliate.xtendly.com/affiliate/onboard/signup?merchant=2"  className="bg-tomato text-dark">Referrals</Button></p>
 		<p><Button  as={Link} to="/terms"  className="bg-tomato text-dark">Terms | Data Privacy</Button></p>
 		</Col>
 
